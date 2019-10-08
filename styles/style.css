@@ -26,30 +26,73 @@ input:focus {
 }
 
 body {
-  box-sizing: content-box;
+  box-sizing: border-box;
   color: black;
   font-family: "Roboto", sans-serif;
   position: relative;
 }
-body header {
+body header nav.featureNav {
+  float: left;
+  width: 120px;
+  height: 100vh;
   z-index: 1;
-  background-color: white;
-  display: grid;
-  grid-template-columns: 100px auto 100px;
-  grid-template-rows: 100px;
-  width: 100%;
   position: fixed;
-  outline: none;
-  background-color: #FDF1F1;
 }
 @media (max-width: 700px) {
-  body header {
-    grid-template-columns: 70px auto 70px;
-    grid-template-rows: 70px;
+  body header nav.featureNav {
+    margin-top: 70px;
+    position: absolute;
+    float: none;
+    width: 100%;
+    top: 0;
+    position: fixed;
   }
 }
+body header nav.featureNav a.logo {
+  background-color: black;
+  height: 80px;
+  width: 120px;
+}
+body header nav.featureNav ul.navList {
+  list-style: none;
+  text-align: center;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 700px) {
+  body header nav.featureNav ul.navList {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+body header nav.featureNav ul.navList li {
+  border: 1px dotted grey;
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 100%;
+}
+body header nav.featureNav ul.navList li :hover {
+  color: black;
+  transition: 0.5s;
+  transform: scale(1.2);
+}
+@media (max-width: 700px) {
+  body header nav.featureNav ul.navList li {
+    margin: 10px;
+  }
+}
+body header nav.featureNav ul.navList li a {
+  text-decoration: none;
+  color: black;
+}
+body header nav.featureNav ul.navList li a i {
+  display: block;
+  margin: 40px auto 5px auto;
+  width: 20px;
+}
+body header nav.featureNav ul.navList li a p {
+  font-size: 15px;
+}
 body header a {
-  background-color: #ff5757;
   width: 100px;
   display: block;
 }
@@ -73,6 +116,8 @@ body header .find {
   font-size: 20px;
   display: flex;
   position: relative;
+  margin-left: 120px;
+  height: 80px;
 }
 body header .find a.searchMovie {
   background: #FDF1F1;
@@ -88,34 +133,12 @@ body header .find a.searchMovie {
   }
 }
 body header .find a.searchMovie:hover {
-  color: #ff5757;
+  color: black;
 }
 body header .find input {
   font-size: 20px;
   border: none;
   background-color: #FDF1F1;
-}
-body header .find ul {
-  position: absolute;
-  max-width: 500px;
-  top: 100px;
-  left: 100px;
-  background-color: #FDF1F1;
-}
-@media (max-width: 700px) {
-  body header .find ul {
-    display: none;
-  }
-}
-body header .find ul a {
-  width: 300px;
-  padding: 0 10px 5px;
-  text-decoration: none;
-  color: grey;
-  background-color: #FDF1F1;
-}
-body header .find ul a:hover {
-  color: #ff5757;
 }
 body header div.dropdownIcon {
   display: none;
@@ -140,7 +163,7 @@ body header div.dropdownIcon a {
   transition: all 0.5s;
 }
 body header div.dropdownIcon a:hover {
-  color: #ff5757;
+  color: black;
   background-color: white;
 }
 body header div.dropdownIcon i {
@@ -157,9 +180,8 @@ body header div.dropdownIcon i {
   }
 }
 body div.bannerContainer {
-  padding-top: 100px;
-  overflow: hidden;
-  justify-content: space-between;
+  margin-left: 120px;
+  height: calc(100vh - 80px);
 }
 @media (max-width: 700px) {
   body div.bannerContainer {
@@ -167,75 +189,11 @@ body div.bannerContainer {
     padding-top: 70px;
   }
 }
-body div.bannerContainer .featureNav {
-  float: left;
-  width: 100px;
-  height: 600px;
-  z-index: 1;
-  position: fixed;
-}
-@media (max-width: 700px) {
-  body div.bannerContainer .featureNav {
-    margin-top: 70px;
-    position: absolute;
-    float: none;
-    width: 100%;
-    top: 0;
-    position: fixed;
-  }
-}
-body div.bannerContainer .featureNav ul {
-  list-style: none;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  height: calc(100vh - 100px);
-}
-@media (max-width: 700px) {
-  body div.bannerContainer .featureNav ul {
-    flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.9);
-    flex-wrap: wrap;
-    height: calc(100vh - 70px);
-  }
-}
-body div.bannerContainer .featureNav ul li {
-  margin: auto;
-  width: 100px;
-  height: calc((100vh - 100px)/4);
-  border: 1px dotted grey;
-  background-color: rgba(255, 255, 255, 0.9);
-}
-body div.bannerContainer .featureNav ul li :hover {
-  color: #ff5757;
-  transition: 0.5s;
-  transform: scale(1.2);
-}
-@media (max-width: 700px) {
-  body div.bannerContainer .featureNav ul li {
-    margin: 10px;
-  }
-}
-body div.bannerContainer .featureNav ul li a {
-  text-decoration: none;
-  color: black;
-}
-body div.bannerContainer .featureNav ul li a i {
-  display: block;
-  margin: 40px auto 5px auto;
-  width: 20px;
-}
-body div.bannerContainer .featureNav ul li a p {
-  font-size: 15px;
-}
 body div.bannerContainer .banner {
-  padding-left: 120px;
-  height: calc(100vh - 100px);
-  background-image: url(../image/banner5.jpg);
+  height: 100%;
+  background-image: url(../image/banner.jpg);
   background-size: cover;
-  background-position: right top;
+  background-position: center;
   background-repeat: no-repeat;
 }
 @media (max-width: 700px) {
@@ -331,18 +289,18 @@ body .movies ul li a.movieAnchor figcaption {
   }
 }
 body .movies a.load {
-  border: 1px solid #ff5757;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 10px 20px;
   margin: 0 auto;
   max-width: 100px;
   text-align: center;
-  color: #ff5757;
+  color: black;
   text-decoration: none;
   transition: all 0.5s;
 }
 body .movies a.load:hover {
-  background-color: #ff5757;
+  background-color: black;
   color: white;
 }
 body .movieModal {
@@ -395,7 +353,7 @@ body .movieModal .movieBox div.backdrop a.closeMovie {
   top: 20px;
 }
 body .movieModal .movieBox div.backdrop a.closeMovie:hover {
-  color: #ff5757;
+  color: black;
 }
 body .movieModal .movieBox div.backdrop .backdropContent {
   position: absolute;
@@ -412,7 +370,7 @@ body .movieModal .movieBox div.backdrop .backdropContent {
   }
 }
 body .movieModal .movieBox div.backdrop .backdropContent h3 {
-  color: #ff5757;
+  color: black;
   font-size: 40px;
   margin-bottom: 10px;
 }
@@ -422,7 +380,7 @@ body .movieModal .movieBox div.backdrop .backdropContent h3 {
   }
 }
 body .movieModal .movieBox div.backdrop .backdropContent h4 {
-  color: #ff5757;
+  color: black;
   font-size: 30px;
 }
 @media (max-width: 700px) {
@@ -449,7 +407,7 @@ body .movieModal .movieBox div.boxInfo .boxInfoContent p {
   text-justify: inter-word;
 }
 body .movieModal .movieBox div.boxInfo .boxInfoContent h5 {
-  color: #ff5757;
+  color: black;
   margin-top: 20px;
 }
 body .movieModal .movieBox .frontImage {

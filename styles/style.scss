@@ -23,8 +23,11 @@ time, mark, audio, video {
 
 $mainFont: 'Roboto', sans-serif;
 $fontTitle: 'Josefin Sans', sans-serif;
-$mainColor: #ff5757;
+$mainColor: black;
 $lightColor: #FDF1F1;
+
+$margin-left: 100px;
+$margin-top: 80px;
 
 $small-break: 700px;
 
@@ -37,26 +40,67 @@ input{
 }
 
 body{
-    box-sizing: content-box;
+    box-sizing: border-box;
     color: black;
     font-family: $mainFont;
     position: relative;
     header{
-        z-index: 1;
-        background-color: white;
-        display: grid;
-        grid-template-columns: 100px auto 100px;
-        grid-template-rows: 100px;
-        width: 100%;
-        position: fixed;
-        outline: none;
-        background-color: $lightColor;
-        @media(max-width: $small-break){
-            grid-template-columns: 70px auto 70px;
-            grid-template-rows: 70px;
+        nav.featureNav{
+            float: left;
+            width: $margin-left;
+            height: 100vh;
+            z-index: 1;
+            position: fixed;
+            @media(max-width: $small-break){
+                margin-top: 70px;
+                position: absolute;
+                float: none;
+                width: 100%;
+                top: 0;
+                position: fixed;
+            }
+            a.logo{
+                background-color: $mainColor;
+                height: $margin-top;
+                width: $margin-left;
+            }
+            ul.navList{
+                list-style: none;
+                text-align: center;
+                height: calc(100vh - 80px);
+                display: flex;
+                flex-direction: column;
+                @media(max-width: $small-break){
+                    background-color: $transparent-white;
+                }
+                li{
+                    border: 1px dotted grey;
+                    background-color: $transparent-white;
+                    height: 100%;
+                    :hover{
+                        color: $mainColor;
+                        transition: 0.5s;
+                        transform: scale(1.2);
+                    }
+                    @media(max-width: $small-break){
+                        margin: 10px;
+                    }
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        i{
+                            display: block;
+                            margin: 40px auto 5px auto;
+                            width: 20px;
+                        }
+                        p{
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
         }
         a{
-            background-color: $mainColor;
             width: 100px;
             display: block;
             @media(max-width: $small-break){
@@ -76,6 +120,8 @@ body{
             font-size: 20px;
             display: flex;
             position: relative;
+            margin-left: $margin-left;
+            height: $margin-top;
             a.searchMovie{
                 background: $lightColor;
                 border: none;
@@ -95,26 +141,6 @@ body{
                 font-size: 20px;
                 border: none;
                 background-color: $lightColor;
-            }
-            ul{
-                position: absolute;
-                max-width: 500px;
-                top: 100px;
-                left: 100px;
-                background-color: $lightColor;
-                @media(max-width: $small-break){
-                    display: none;
-                }
-                a{
-                    width: 300px;
-                    padding: 0 10px 5px;
-                    text-decoration: none;
-                    color: grey;
-                    background-color: $lightColor;
-                    &:hover{
-                        color: $mainColor;
-                    }
-                }
             }
         }
         div.dropdownIcon{
@@ -152,76 +178,17 @@ body{
         }
     }
     div.bannerContainer{
-        padding-top: 100px;
-        overflow: hidden;
-        justify-content: space-between;
+        margin-left: $margin-left;
+        height: calc(100vh - 80px);
         @media(max-width: $small-break){
             position: relative;
             padding-top: 70px;
         }
-        .featureNav{
-            float: left;
-            width: 100px;
-            height: 600px;
-            z-index: 1;
-            position: fixed;
-            @media(max-width: $small-break){
-                margin-top: 70px;
-                position: absolute;
-                float: none;
-                width: 100%;
-                top: 0;
-                position: fixed;
-            }
-            ul{
-                list-style: none;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-content: center;
-                height: calc(100vh - 100px);
-                @media(max-width: $small-break){
-                    flex-direction: row;
-                    background-color: $transparent-white;
-                    flex-wrap: wrap;
-                    height: calc(100vh - 70px);
-                }
-                li{
-                    margin: auto;
-                    width: 100px;
-                    height: calc((100vh - 100px)/4); 
-                    border: 1px dotted grey;
-                    background-color: $transparent-white;
-                    :hover{
-                        color: $mainColor;
-                        transition: 0.5s;
-                        transform: scale(1.2);
-                    }
-                    @media(max-width: $small-break){
-                        margin: 10px;
-                    }
-                    a{
-                        text-decoration: none;
-                        color: black;
-                        i{
-                            display: block;
-                            margin: 40px auto 5px auto;
-                            width: 20px;
-                        }
-                        p{
-                            font-size: 15px;
-                        }
-                    }
-                }
-            }
-        }
         .banner{
-            padding-left: $margin-left;
-            height: calc(100vh - 100px);
-            background-image: url(../image/banner5.jpg);
+            height: 100%;
+            background-image: url(../image/banner.jpg);
             background-size: cover; 
-            background-position: right top;
+            background-position: center;
             background-repeat: no-repeat;
             @media(max-width: $small-break){
                 width: 100%;

@@ -14,18 +14,10 @@
 </head>
 <body onload="initialize()" id="body">
     <header>
-        <a href=""><img src="image/pochoclo.png"></a> 
-        <form class="find">
-            <a href="#" onclick="searchMovieOnclick()" class="searchMovie"><i class="fas fa-search lens"></i></a>
-            <input placeholder="Search for a movie..." id="searchInput" onkeyup="handleSearch()">
-        </form>
-        <div class="dropdownIcon">
-            <a href="#" onclick="dropdownMenu()"><i class="fas fa-bars"></i></a>
-        </div>
-    </header>
-    <div class="bannerContainer show">
+        <!-- LEFT-SIDE NAV -->
         <nav class="featureNav show" id="featureNav">
-            <ul>
+            <a href="#" class="logo"><img /></a>
+            <ul class="navList">
                 <li>
                     <a href="#" onclick="allPopularMovies()">
                         <i class="far fa-star"></i>
@@ -52,10 +44,23 @@
                 </li>
             </ul>
         </nav>
-        <div class="banner show" id="h1banner">
-            <h1>MOVIE TIME</h1>
+        <!-- SEARCH -->
+        <form class="find">
+            <a href="#" onclick="searchMovieOnclick()" class="searchMovie"><i class="fas fa-search lens"></i></a>
+            <input placeholder="Search for a movie..." id="searchInput" onkeyup="handleSearch()">
+        </form>
+        <!-- MOBILE MENU -->
+        <div class="dropdownIcon">
+            <a href="#" onclick="dropdownMenu()"><i class="fas fa-bars"></i></a>
         </div>
-    </div>
+        <!-- BANNER -->
+        <div class="bannerContainer show">
+            <div class="banner show" id="h1banner">
+                <h1></h1>
+            </div>
+        </div>
+    </header> 
+    
     <!-- MODAL -->
     <section class="movieModal hide" id="movieModal">
         <div class="movieBox">
