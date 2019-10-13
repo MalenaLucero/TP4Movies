@@ -132,6 +132,13 @@ body{
             position: relative;
             margin-left: $margin-left;
             height: $margin-top;
+            background-color: white;
+            width: 100%;
+            @media(max-width: $small-break){
+                position: fixed;
+                z-index: 1;
+                margin: 0 $margin-left-small;
+            } 
             a.searchMovie{
                 border: none;
                 color: black;
@@ -149,40 +156,31 @@ body{
                 border: none;
                 @media(max-width: $small-break){
                     margin-left: 20px;
-                } 
+                }
             }
         }
         div.dropdownIcon{
-            display: none;
-            height: 100px;
-            font-size: 50px;
-            float: right;
-            position: absolute;
+            height: $margin-top;
+            width: $margin-left-small;
+            font-size: 40px;
+            position: fixed;
             right: 0;
-            @media(max-width: $small-break){
-                height: 70px;
-                font-size: 30px;
-            }
+            top: 0;
+            z-index: 2;
             a{
                 height: 100%;
+                width: 100%;
                 text-align: center;
                 text-justify: center;
                 border: none;
-                color: white;
+                color: black;
                 transition: all 0.5s;
+                line-height: $margin-top;
+                background-color: white;
                 &:hover{
-                    color: $mainColor;
-                    background-color: white;
+                    background-color: black;
+                    color: white;
                 }
-            }
-            i{
-                line-height: 100px;
-                @media(max-width: $small-break){
-                    line-height: 70px;
-                }
-            }
-            @media(max-width: $small-break){
-                display: block;
             }
         }
     }
@@ -191,7 +189,7 @@ body{
         height: calc(100vh - 80px);
         @media(max-width: $small-break){
             margin-left: 0;
-            position: relative;
+            padding-top: $margin-top;
         }
         .banner{
             height: 100%;
@@ -199,11 +197,6 @@ body{
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
-            @media(max-width: $small-break){
-                width: 100%;
-                padding-left: 0;
-                height: calc(100vh - 70px)
-            }
             h1{
                 color: white;
                 font-family: $fontTitle;

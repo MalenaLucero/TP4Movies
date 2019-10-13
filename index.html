@@ -15,34 +15,36 @@
 <body onload="initialize()" id="body">
     <header>
         <!-- LEFT-SIDE NAV -->
-        <nav class="featureNav show" id="featureNav">
+        <nav class="featureNav">
             <a href="#" class="logo"><i class="fas fa-film"></i></a>
-            <ul class="navList">
-                <li>
-                    <a href="#" onclick="allPopularMovies()">
-                        <i class="far fa-star"></i>
-                        <p>POPULAR</p>   
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="allTopRates()">
-                        <i class="fas fa-arrow-up"></i>
-                        <p>TOP RATES</p> 
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="allUpcoming()">
-                        <i class="far fa-calendar-alt"></i>
-                        <p>UPCOMING</p> 
-                    </a>
-                </li>
-                <li>
-                    <a href="#" onclick="allNowPlaying()">
-                        <i class="far fa-play-circle"></i>
-                        <p>NOW PLAYING</p> 
-                    </a>
-                </li>
-            </ul>
+            <div class="show" id="featureNav">
+                <ul class="navList">
+                    <li>
+                        <a href="#" onclick="allPopularMovies()">
+                            <i class="far fa-star"></i>
+                            <p>POPULAR</p>   
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="allTopRates()">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>TOP RATES</p> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="allUpcoming()">
+                            <i class="far fa-calendar-alt"></i>
+                            <p>UPCOMING</p> 
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="allNowPlaying()">
+                            <i class="far fa-play-circle"></i>
+                            <p>NOW PLAYING</p> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </nav>
         <!-- SEARCH -->
         <form class="find">
@@ -50,7 +52,7 @@
             <input placeholder="Search for a movie..." id="searchInput" onkeyup="handleSearch()">
         </form>
         <!-- MOBILE MENU -->
-        <div class="dropdownIcon">
+        <div class="dropdownIcon show" id="dropDownIcon">
             <a href="#" onclick="dropdownMenu()"><i class="fas fa-bars"></i></a>
         </div>
         <!-- BANNER -->

@@ -9,7 +9,14 @@ const initialize = () =>{
     fetchMoviePosters('topRates', 'top_rated', fourArray, 1)
     fetchMoviePosters('upcoming', 'upcoming', fourArray, 1)
     fetchMoviePosters('nowPlaying', 'now_playing', fourArray, 1)
-    //if(window.innerWidth <= 700) hideElement('featureNav')
+    if(window.innerWidth <= 700) {
+        hideElement('featureNav')
+        showElement('dropDownIcon')
+    }
+    if(window.innerWidth > 700){
+        showElement('featureNav')
+        hideElement('dropDownIcon')
+    }
 }
 
 const fetchMoviePosters = (containerId, category, numbersArray, page) =>{

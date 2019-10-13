@@ -129,6 +129,15 @@ body header .find {
   position: relative;
   margin-left: 120px;
   height: 80px;
+  background-color: white;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  body header .find {
+    position: fixed;
+    z-index: 1;
+    margin: 0 80px;
+  }
 }
 body header .find a.searchMovie {
   border: none;
@@ -154,43 +163,28 @@ body header .find input {
   }
 }
 body header div.dropdownIcon {
-  display: none;
-  height: 100px;
-  font-size: 50px;
-  float: right;
-  position: absolute;
+  height: 80px;
+  width: 80px;
+  font-size: 40px;
+  position: fixed;
   right: 0;
-}
-@media (max-width: 700px) {
-  body header div.dropdownIcon {
-    height: 70px;
-    font-size: 30px;
-  }
+  top: 0;
+  z-index: 2;
 }
 body header div.dropdownIcon a {
   height: 100%;
+  width: 100%;
   text-align: center;
   text-justify: center;
   border: none;
-  color: white;
-  transition: all 0.5s;
-}
-body header div.dropdownIcon a:hover {
   color: black;
+  transition: all 0.5s;
+  line-height: 80px;
   background-color: white;
 }
-body header div.dropdownIcon i {
-  line-height: 100px;
-}
-@media (max-width: 700px) {
-  body header div.dropdownIcon i {
-    line-height: 70px;
-  }
-}
-@media (max-width: 700px) {
-  body header div.dropdownIcon {
-    display: block;
-  }
+body header div.dropdownIcon a:hover {
+  background-color: black;
+  color: white;
 }
 body div.bannerContainer {
   margin-left: 120px;
@@ -199,7 +193,7 @@ body div.bannerContainer {
 @media (max-width: 700px) {
   body div.bannerContainer {
     margin-left: 0;
-    position: relative;
+    padding-top: 80px;
   }
 }
 body div.bannerContainer .banner {
@@ -208,13 +202,6 @@ body div.bannerContainer .banner {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-@media (max-width: 700px) {
-  body div.bannerContainer .banner {
-    width: 100%;
-    padding-left: 0;
-    height: calc(100vh - 70px);
-  }
 }
 body div.bannerContainer .banner h1 {
   color: white;
