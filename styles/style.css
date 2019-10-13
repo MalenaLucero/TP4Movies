@@ -40,18 +40,24 @@ body header nav.featureNav {
 }
 @media (max-width: 700px) {
   body header nav.featureNav {
-    margin-top: 70px;
-    position: absolute;
     float: none;
     width: 100%;
     top: 0;
-    position: fixed;
   }
 }
 body header nav.featureNav a.logo {
+  color: white;
   background-color: black;
   height: 80px;
   width: 120px;
+  line-height: 80px;
+  font-size: 40px;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  body header nav.featureNav a.logo {
+    width: 80px;
+  }
 }
 body header nav.featureNav ul.navList {
   list-style: none;
@@ -59,38 +65,43 @@ body header nav.featureNav ul.navList {
   height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 @media (max-width: 700px) {
   body header nav.featureNav ul.navList {
-    background-color: rgba(255, 255, 255, 0.9);
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
 body header nav.featureNav ul.navList li {
-  border: 1px dotted grey;
+  border: 1px dotted #c9c9c9;
   background-color: rgba(255, 255, 255, 0.9);
   height: 100%;
 }
 body header nav.featureNav ul.navList li :hover {
   color: black;
   transition: 0.5s;
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 @media (max-width: 700px) {
   body header nav.featureNav ul.navList li {
-    margin: 10px;
+    flex-basis: 40%;
+    height: 35%;
   }
 }
 body header nav.featureNav ul.navList li a {
   text-decoration: none;
   color: black;
-}
-body header nav.featureNav ul.navList li a i {
-  display: block;
-  margin: 40px auto 5px auto;
-  width: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 body header nav.featureNav ul.navList li a p {
-  font-size: 15px;
+  margin-top: 10px;
 }
 body header a {
   width: 100px;
@@ -120,12 +131,10 @@ body header .find {
   height: 80px;
 }
 body header .find a.searchMovie {
-  background: #FDF1F1;
   border: none;
   color: black;
-  line-height: 100px;
+  line-height: 80px;
   text-align: center;
-  margin-left: 10px;
 }
 @media (max-width: 700px) {
   body header .find a.searchMovie {
@@ -138,7 +147,11 @@ body header .find a.searchMovie:hover {
 body header .find input {
   font-size: 20px;
   border: none;
-  background-color: #FDF1F1;
+}
+@media (max-width: 700px) {
+  body header .find input {
+    margin-left: 20px;
+  }
 }
 body header div.dropdownIcon {
   display: none;
@@ -185,8 +198,8 @@ body div.bannerContainer {
 }
 @media (max-width: 700px) {
   body div.bannerContainer {
+    margin-left: 0;
     position: relative;
-    padding-top: 70px;
   }
 }
 body div.bannerContainer .banner {

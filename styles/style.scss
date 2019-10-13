@@ -28,6 +28,7 @@ $lightColor: #FDF1F1;
 
 $margin-left: 100px;
 $margin-top: 80px;
+$margin-left-small: 80px;
 
 $small-break: 700px;
 
@@ -52,17 +53,21 @@ body{
             z-index: 1;
             position: fixed;
             @media(max-width: $small-break){
-                margin-top: 70px;
-                position: absolute;
                 float: none;
                 width: 100%;
                 top: 0;
-                position: fixed;
             }
             a.logo{
+                color: white;
                 background-color: $mainColor;
                 height: $margin-top;
                 width: $margin-left;
+                line-height: $margin-top;
+                font-size: 40px;
+                text-align: center;
+                @media(max-width: $small-break){
+                    width: $margin-left-small;
+                }
             }
             ul.navList{
                 list-style: none;
@@ -70,31 +75,36 @@ body{
                 height: calc(100vh - 80px);
                 display: flex;
                 flex-direction: column;
+                background-color: $transparent-white;
                 @media(max-width: $small-break){
-                    background-color: $transparent-white;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-wrap: wrap;
                 }
                 li{
-                    border: 1px dotted grey;
+                    border: 1px dotted #c9c9c9;
                     background-color: $transparent-white;
                     height: 100%;
                     :hover{
                         color: $mainColor;
                         transition: 0.5s;
-                        transform: scale(1.2);
+                        transform: scale(1.1);
                     }
                     @media(max-width: $small-break){
-                        margin: 10px;
+                        flex-basis: 40%;
+                        height: 35%;
                     }
                     a{
                         text-decoration: none;
                         color: black;
-                        i{
-                            display: block;
-                            margin: 40px auto 5px auto;
-                            width: 20px;
-                        }
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
                         p{
-                            font-size: 15px;
+                            margin-top: 10px;
                         }
                     }
                 }
@@ -123,24 +133,23 @@ body{
             margin-left: $margin-left;
             height: $margin-top;
             a.searchMovie{
-                background: $lightColor;
                 border: none;
                 color: black;
-                line-height: 100px;
+                line-height: $margin-top;
                 text-align: center;
-                margin-left: 10px;
                 @media(max-width: $small-break){
                     display: none;
-                }
+                } 
                 &:hover{
                     color: $mainColor;
                 }
             }
-            
             input{
                 font-size: 20px;
                 border: none;
-                background-color: $lightColor;
+                @media(max-width: $small-break){
+                    margin-left: 20px;
+                } 
             }
         }
         div.dropdownIcon{
@@ -181,8 +190,8 @@ body{
         margin-left: $margin-left;
         height: calc(100vh - 80px);
         @media(max-width: $small-break){
+            margin-left: 0;
             position: relative;
-            padding-top: 70px;
         }
         .banner{
             height: 100%;
