@@ -314,6 +314,4 @@ const printBackDropPath = backdrop_path =>{
     
 } 
 
-const movieBoxOnClick = () =>{
-    hideElement('movieModal')
-}
+const movieBoxOnClick = () =>{ hideElement('movieModal')}

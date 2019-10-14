@@ -39,6 +39,7 @@ body header nav.featureNav {
     float: none;
     width: 100%;
     top: 0;
+    height: 80px;
   }
 }
 body header nav.featureNav a.logo {
@@ -126,6 +127,7 @@ body header .find {
   margin-left: 120px;
   height: 80px;
   background-color: white;
+  width: 80%;
 }
 @media (max-width: 700px) {
   body header .find {
@@ -276,11 +278,9 @@ body section.movies ul.moviesList li a.movieAnchor img {
   width: 100%;
   transition: all 0.7s;
 }
-@media (min-width: 700px) {
-  body section.movies ul.moviesList li a.movieAnchor img:hover {
-    box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.9);
-    transform: scale(1.1, 1.1);
-  }
+body section.movies ul.moviesList li a.movieAnchor img:hover {
+  box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.9);
+  transform: scale(1.1, 1.1);
 }
 body section.movies ul.moviesList li a.movieAnchor figcaption {
   font-size: 15px;

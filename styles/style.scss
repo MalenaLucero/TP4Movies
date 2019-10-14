@@ -53,6 +53,7 @@ body{
                 float: none;
                 width: 100%;
                 top: 0;
+                height: 80px;
             }
             a.logo{
                 color: white;
@@ -130,6 +131,7 @@ body{
             margin-left: $margin-left;
             height: $margin-top;
             background-color: white;
+            width: 80%;
             @media(max-width: $small-break){
                 position: fixed;
                 z-index: 1;
@@ -265,11 +267,9 @@ body{
                     img{
                         width: 100%;
                         transition: all 0.7s;
-                        @media(min-width: $small-break){
-                            &:hover{
-                                box-shadow: 4px 2px 46px -10px rgba(0,0,0,0.9);
-                                transform: scale(1.1, 1.1);
-                            }
+                        &:hover{
+                            box-shadow: 4px 2px 46px -10px rgba(0,0,0,0.9);
+                            transform: scale(1.1, 1.1);
                         }
                         
                     }
