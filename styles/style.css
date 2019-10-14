@@ -21,10 +21,6 @@ time, mark, audio, video {
   background-color: none;
 }
 
-input:focus {
-  outline: none !important;
-}
-
 body {
   box-sizing: border-box;
   color: black;
@@ -152,9 +148,22 @@ body header .find a.searchMovie {
 body header .find a.searchMovie:hover {
   color: black;
 }
+body header .find .inputContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
 body header .find input {
+  height: 30px;
+  padding: 10px;
   font-size: 20px;
-  border: none;
+  border: 1px solid white;
+  border-bottom: 1px solid lightgray;
+}
+body header .find input:focus {
+  outline: none !important;
+  border-bottom: 1px solid black;
 }
 @media (max-width: 700px) {
   body header .find input {
@@ -203,19 +212,16 @@ body div.bannerContainer .banner {
   background-repeat: no-repeat;
 }
 body div.bannerContainer .banner h1 {
-  color: white;
+  color: #ff0505;
+  text-shadow: 1px 1px 1px black;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 130px;
-  margin-top: 40px;
-  margin-left: 50px;
-  float: left;
+  font-size: 60px;
+  text-align: center;
+  padding: 30px;
 }
 @media (max-width: 700px) {
   body div.bannerContainer .banner h1 {
-    margin-left: 10px;
-    display: inline-block;
-    text-align: center;
-    font-size: 80px;
+    font-size: 50px;
   }
 }
 body section.movies {
@@ -250,19 +256,15 @@ body section.movies ul.moviesList {
   clear: both;
   display: flex;
   justify-content: space-between;
-}
-@media (max-width: 700px) {
-  body section.movies ul.moviesList {
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
 }
 body section.movies ul.moviesList li {
   flex-basis: 23%;
+  margin-bottom: 20px;
 }
 @media (max-width: 700px) {
   body section.movies ul.moviesList li {
     flex-basis: 45%;
-    margin-bottom: 20px;
   }
 }
 body section.movies ul.moviesList li a.movieAnchor {
@@ -272,28 +274,29 @@ body section.movies ul.moviesList li a.movieAnchor {
 }
 body section.movies ul.moviesList li a.movieAnchor img {
   width: 100%;
-  transition: all 0.5s;
+  transition: all 0.7s;
 }
 body section.movies ul.moviesList li a.movieAnchor img:hover {
-  box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.9);
+  transform: scale(1.1, 1.1);
 }
 body section.movies ul.moviesList li a.movieAnchor figcaption {
   font-size: 15px;
   text-align: center;
 }
 body section.movies a.load {
-  border: 1px solid black;
+  border: 1px solid #ff0505;
   border-radius: 5px;
   padding: 10px 20px;
   margin: 0 auto;
   max-width: 100px;
   text-align: center;
-  color: black;
+  color: #ff0505;
   text-decoration: none;
   transition: all 0.5s;
 }
 body section.movies a.load:hover {
-  background-color: black;
+  background-color: #ff0505;
   color: white;
 }
 body .movieModal {
@@ -306,7 +309,7 @@ body .movieModal {
   overflow: scroll;
 }
 body .movieModal .movieBox {
-  width: 50%;
+  width: 60%;
   margin: 30px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -346,7 +349,7 @@ body .movieModal .movieBox div.backdrop a.closeMovie {
   top: 20px;
 }
 body .movieModal .movieBox div.backdrop a.closeMovie:hover {
-  color: black;
+  color: #ff0505;
 }
 body .movieModal .movieBox div.backdrop .backdropContent {
   position: absolute;
@@ -363,7 +366,7 @@ body .movieModal .movieBox div.backdrop .backdropContent {
   }
 }
 body .movieModal .movieBox div.backdrop .backdropContent h3 {
-  color: black;
+  color: #ff0505;
   font-size: 40px;
   margin-bottom: 10px;
 }
@@ -373,7 +376,7 @@ body .movieModal .movieBox div.backdrop .backdropContent h3 {
   }
 }
 body .movieModal .movieBox div.backdrop .backdropContent h4 {
-  color: black;
+  color: #ff0505;
   font-size: 30px;
 }
 @media (max-width: 700px) {
@@ -398,9 +401,10 @@ body .movieModal .movieBox div.boxInfo .boxInfoContent p {
   font-size: 14px;
   text-align: justify;
   text-justify: inter-word;
+  line-height: 20px;
 }
 body .movieModal .movieBox div.boxInfo .boxInfoContent h5 {
-  color: black;
+  color: #ff0505;
   margin-top: 20px;
 }
 body .movieModal .movieBox .frontImage {

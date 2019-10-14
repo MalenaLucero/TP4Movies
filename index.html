@@ -49,22 +49,24 @@
         <!-- SEARCH -->
         <form class="find">
             <a href="#" onclick="searchMovieOnclick()" class="searchMovie"><i class="fas fa-search lens"></i></a>
-            <input placeholder="Search for a movie..." id="searchInput" onkeyup="handleSearch()">
+            <div class="inputContainer">
+                <input placeholder="Search for a movie..." id="searchInput" onkeyup="handleSearch()">
+            </div>
         </form>
         <!-- MOBILE MENU -->
         <div class="dropdownIcon show" id="dropDownIcon">
             <a href="#" onclick="dropdownMenu()"><i class="fas fa-bars"></i></a>
         </div>
         <!-- BANNER -->
-        <div class="bannerContainer show">
-            <div class="banner show" id="h1banner">
-                <h1></h1>
+        <div class="bannerContainer show" id="h1banner">
+            <div class="banner">
+                <h1>MOVIE APP</h1>
             </div>
         </div>
     </header> 
     
     <!-- MODAL -->
-    <section class="movieModal hide" id="movieModal">
+    <section class="movieModal hide" id="movieModal" onclick="movieBoxOnClick()">
         <div class="movieBox">
             <div class="backdrop" id="backdrop">
                 <img class="backgroundImage" id="backgroundImage">

@@ -310,3 +310,8 @@ const printBackDropPath = backdrop_path =>{
     image.src = `https://image.tmdb.org/t/p/w500${backdrop_path}`
     
 } 
+
+const movieBoxOnClick = () =>{
+    console.log('click')
+    hideElement('movieModal')
+}
