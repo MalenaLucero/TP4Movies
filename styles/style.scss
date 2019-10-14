@@ -265,9 +265,11 @@ body{
                     img{
                         width: 100%;
                         transition: all 0.7s;
-                        &:hover{
-                            box-shadow: 4px 2px 46px -10px rgba(0,0,0,0.9);
-                            transform: scale(1.1, 1.1);
+                        @media(min-width: $small-break){
+                            &:hover{
+                                box-shadow: 4px 2px 46px -10px rgba(0,0,0,0.9);
+                                transform: scale(1.1, 1.1);
+                            }
                         }
                         
                     }

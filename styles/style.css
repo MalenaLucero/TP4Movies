@@ -276,9 +276,11 @@ body section.movies ul.moviesList li a.movieAnchor img {
   width: 100%;
   transition: all 0.7s;
 }
-body section.movies ul.moviesList li a.movieAnchor img:hover {
-  box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.9);
-  transform: scale(1.1, 1.1);
+@media (min-width: 700px) {
+  body section.movies ul.moviesList li a.movieAnchor img:hover {
+    box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.9);
+    transform: scale(1.1, 1.1);
+  }
 }
 body section.movies ul.moviesList li a.movieAnchor figcaption {
   font-size: 15px;

@@ -33,11 +33,8 @@ const fetchMoviePosters = (containerId, category, numbersArray, page) =>{
                 let anchor = document.createElement('a')
                 anchor.id = res.results[num].id
                 anchor.classList.add("movieAnchor")
-                anchor.onclick = function(){
-                    event.preventDefault()
-                    showMovieInfo()
-                    fillModal(anchor.id)
-                }
+                anchor.href="#"
+                anchor.onclick = () => openModal(anchor.id)
                 let figure = document.createElement('figure')
                 let image = document.createElement('img')
                 let movieTitle = document.createElement('figcaption')
@@ -51,6 +48,12 @@ const fetchMoviePosters = (containerId, category, numbersArray, page) =>{
             })
         })
         .catch(error=>console.log(error))  
+}
+
+const openModal = (id) =>{
+    event.preventDefault()
+    showMovieInfo()
+    fillModal(id)
 }
 
 const allPopularMovies = () =>{
@@ -312,6 +315,5 @@ const printBackDropPath = backdrop_path =>{
 } 
 
 const movieBoxOnClick = () =>{
-    console.log('click')
     hideElement('movieModal')
 }
