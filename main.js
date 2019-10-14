@@ -17,6 +17,15 @@ const initialize = () =>{
         showElement('featureNav')
         hideElement('dropDownIcon')
     }
+    window.addEventListener('resize', function(event){
+        if(window.innerWidth <= 700) {
+            hideElement('featureNav')
+            showElement('dropDownIcon')
+        }else if(window.innerWidth > 700){
+            showElement('featureNav')
+            hideElement('dropDownIcon')
+        }
+    })
 }
 
 const fetchMoviePosters = (containerId, category, numbersArray, page) =>{
