@@ -25,6 +25,7 @@ $mainFont: 'Roboto', sans-serif;
 $fontTitle: 'Josefin Sans', sans-serif;
 $mainColor: black;
 $lightColor: #FDF1F1;
+$alt-color: #ff0505;
 
 $margin-left: 100px;
 $margin-top: 80px;
@@ -133,7 +134,6 @@ body{
             margin-left: $margin-left;
             height: $margin-top;
             background-color: white;
-            width: 100%;
             @media(max-width: $small-break){
                 position: fixed;
                 z-index: 1;
@@ -213,28 +213,24 @@ body{
             }
         }
     }    
-    .movies{
-        margin: 30px 40px 50px 150px;
+    section.movies{
+        margin: 30px 20px 50px 150px;
         @media(max-width: $small-break){
             margin: 10px;
         }
         div{
-            margin: 10px;
-            overflow: hidden;
+            margin: 30px 0;
             h3{
                 font-size: 18px;
-                color: grey;
-                margin-left: 10px;
-                float: left;
+                color:black;
+                display: inline-block;
             }
             a{
                 text-decoration: none;
-                margin-right: 10px;
                 float: right;
                 p{
                     font-size: 15px;
-                    color: grey;
-                    margin-right: 10px;
+                    color: $alt-color;
                 }
             }
         }
@@ -242,24 +238,26 @@ body{
             float: right;
             color: grey;
         }
-        ul{
+        ul.moviesList{
             clear: both;
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 20px 0;
+            justify-content: space-between;
+            @media(max-width: $small-break){
+                flex-wrap: wrap;
+            }
             li{
-                margin-top: 20px;
+                flex-basis: 23%;
+                @media(max-width: $small-break){
+                    flex-basis: 45%;
+                    margin-bottom: 20px;
+                }
                 a.movieAnchor{
                     text-decoration: none;
                     color: grey;
                     cursor: pointer;
                     img{
-                        max-width: 200px;
+                        width: 100%;
                         transition: all 0.5s;
-                        @media(max-width: $small-break){
-                            max-width: 120px;
-                        }
                         &:hover{
                             box-shadow: 4px 2px 46px -10px rgba(0,0,0,0.7);
                         }
@@ -267,11 +265,7 @@ body{
                     }
                     figcaption{
                         font-size: 15px;
-                        max-width: 200px;
                         text-align: center;
-                        @media(max-width: $small-break){
-                            max-width: 120px;
-                        }
                     }
                 }
             }

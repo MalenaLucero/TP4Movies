@@ -130,7 +130,6 @@ body header .find {
   margin-left: 120px;
   height: 80px;
   background-color: white;
-  width: 100%;
 }
 @media (max-width: 700px) {
   body header .find {
@@ -219,76 +218,70 @@ body div.bannerContainer .banner h1 {
     font-size: 80px;
   }
 }
-body .movies {
-  margin: 30px 40px 50px 150px;
+body section.movies {
+  margin: 30px 20px 50px 150px;
 }
 @media (max-width: 700px) {
-  body .movies {
+  body section.movies {
     margin: 10px;
   }
 }
-body .movies div {
-  margin: 10px;
-  overflow: hidden;
+body section.movies div {
+  margin: 30px 0;
 }
-body .movies div h3 {
+body section.movies div h3 {
   font-size: 18px;
-  color: grey;
-  margin-left: 10px;
-  float: left;
+  color: black;
+  display: inline-block;
 }
-body .movies div a {
+body section.movies div a {
   text-decoration: none;
-  margin-right: 10px;
   float: right;
 }
-body .movies div a p {
+body section.movies div a p {
   font-size: 15px;
-  color: grey;
-  margin-right: 10px;
+  color: #ff0505;
 }
-body .movies p.results {
+body section.movies p.results {
   float: right;
   color: grey;
 }
-body .movies ul {
+body section.movies ul.moviesList {
   clear: both;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 20px 0;
+  justify-content: space-between;
 }
-body .movies ul li {
-  margin-top: 20px;
+@media (max-width: 700px) {
+  body section.movies ul.moviesList {
+    flex-wrap: wrap;
+  }
 }
-body .movies ul li a.movieAnchor {
+body section.movies ul.moviesList li {
+  flex-basis: 23%;
+}
+@media (max-width: 700px) {
+  body section.movies ul.moviesList li {
+    flex-basis: 45%;
+    margin-bottom: 20px;
+  }
+}
+body section.movies ul.moviesList li a.movieAnchor {
   text-decoration: none;
   color: grey;
   cursor: pointer;
 }
-body .movies ul li a.movieAnchor img {
-  max-width: 200px;
+body section.movies ul.moviesList li a.movieAnchor img {
+  width: 100%;
   transition: all 0.5s;
 }
-@media (max-width: 700px) {
-  body .movies ul li a.movieAnchor img {
-    max-width: 120px;
-  }
-}
-body .movies ul li a.movieAnchor img:hover {
+body section.movies ul.moviesList li a.movieAnchor img:hover {
   box-shadow: 4px 2px 46px -10px rgba(0, 0, 0, 0.7);
 }
-body .movies ul li a.movieAnchor figcaption {
+body section.movies ul.moviesList li a.movieAnchor figcaption {
   font-size: 15px;
-  max-width: 200px;
   text-align: center;
 }
-@media (max-width: 700px) {
-  body .movies ul li a.movieAnchor figcaption {
-    max-width: 120px;
-  }
-}
-body .movies a.load {
+body section.movies a.load {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px 20px;
@@ -299,7 +292,7 @@ body .movies a.load {
   text-decoration: none;
   transition: all 0.5s;
 }
-body .movies a.load:hover {
+body section.movies a.load:hover {
   background-color: black;
   color: white;
 }
