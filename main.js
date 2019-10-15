@@ -2,6 +2,9 @@ const apiKey = 'e007dc23f3b14243908e46acf9ee53a1'
 const fourArray = [...Array(4).keys()]
 const twentyArray = [...Array(20).keys()]
 let lastRequest
+const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
+const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection']
+const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
 
 
 const initialize = () =>{
@@ -9,6 +12,7 @@ const initialize = () =>{
     fetchMoviePosters('topRates', 'top_rated', fourArray, 1)
     fetchMoviePosters('upcoming', 'upcoming', fourArray, 1)
     fetchMoviePosters('nowPlaying', 'now_playing', fourArray, 1)
+    showElement('h1banner')
     if(window.innerWidth <= 700) {
         hideElement('featureNav')
         showElement('dropDownIcon')
@@ -17,7 +21,7 @@ const initialize = () =>{
         showElement('featureNav')
         hideElement('dropDownIcon')
     }
-    window.addEventListener('resize', function(event){
+    window.addEventListener('resize', function(){
         if(window.innerWidth <= 700) {
             hideElement('featureNav')
             showElement('dropDownIcon')
@@ -26,6 +30,14 @@ const initialize = () =>{
             hideElement('dropDownIcon')
         }
     })
+}
+
+const homeOnclick = () =>{
+    showElement('h1banner')
+    moviesListId.forEach(list => innerHTMLCleaner(list))
+    loadMoreBtnId.forEach(btn => hideElement(btn))
+    sectionsId.forEach(section => showElement(section))
+    initialize()
 }
 
 const fetchMoviePosters = (containerId, category, numbersArray, page) =>{

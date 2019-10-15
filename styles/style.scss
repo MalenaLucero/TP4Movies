@@ -63,6 +63,7 @@ body{
                 line-height: $margin-top;
                 font-size: 40px;
                 text-align: center;
+                z-index: 3;
                 @media(max-width: $small-break){
                     width: $margin-left-small;
                 }
@@ -359,14 +360,14 @@ body{
                         font-size: 40px;
                         margin-bottom: 10px;
                         @media(max-width: $small-break){
-                            font-size: 25px;
+                            font-size: 30px;
                         }
                     }
                     h4{
                         color: $alt-color;
                         font-size: 30px;
                         @media(max-width: $small-break){
-                            font-size: 15px;
+                            font-size: 20px;
                         }
                     }
                 }

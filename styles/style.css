@@ -50,6 +50,7 @@ body header nav.featureNav a.logo {
   line-height: 80px;
   font-size: 40px;
   text-align: center;
+  z-index: 3;
 }
 @media (max-width: 700px) {
   body header nav.featureNav a.logo {
@@ -374,7 +375,7 @@ body .movieModal .movieBox div.backdrop .backdropContent h3 {
 }
 @media (max-width: 700px) {
   body .movieModal .movieBox div.backdrop .backdropContent h3 {
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 body .movieModal .movieBox div.backdrop .backdropContent h4 {
@@ -383,7 +384,7 @@ body .movieModal .movieBox div.backdrop .backdropContent h4 {
 }
 @media (max-width: 700px) {
   body .movieModal .movieBox div.backdrop .backdropContent h4 {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 body .movieModal .movieBox div.boxInfo {
