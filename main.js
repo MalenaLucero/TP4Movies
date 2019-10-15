@@ -175,6 +175,11 @@ const searchFetch = (containerId, apiString) =>{
     fetch(`https://api.themoviedb.org/3/search/movie${apiString}`)
             .then(res=>res.json())
             .then(res=>{
+                if(res.results.length < 20){
+                    hideElement('searchLoad')
+                }else{
+                    showElement('searchLoad')
+                }
                 let results = document.getElementById('searchResults')
                 results.innerText = `${res.total_results} results`
                 twentyArray.forEach(num=>{
