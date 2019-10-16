@@ -39,7 +39,7 @@ body header nav.featureNav {
     float: none;
     width: 100%;
     top: 0;
-    height: 80px;
+    height: 60px;
   }
 }
 body header nav.featureNav a.logo {
@@ -51,10 +51,17 @@ body header nav.featureNav a.logo {
   font-size: 40px;
   text-align: center;
   z-index: 3;
+  transition: color 0.5;
+}
+body header nav.featureNav a.logo:hover {
+  color: #ff0505;
 }
 @media (max-width: 700px) {
   body header nav.featureNav a.logo {
     width: 80px;
+    height: 60px;
+    font-size: 35px;
+    line-height: 60px;
   }
 }
 body header nav.featureNav ul.navList {
@@ -135,6 +142,7 @@ body header .find {
     top: 0;
     z-index: 1;
     margin: 0 80px;
+    height: 60px;
   }
 }
 body header .find a.searchMovie {
@@ -170,13 +178,14 @@ body header .find input:focus {
 }
 @media (max-width: 700px) {
   body header .find input {
+    height: 20px;
     margin-left: 20px;
   }
 }
 body header div.dropdownIcon {
-  height: 80px;
+  height: 60px;
   width: 80px;
-  font-size: 40px;
+  font-size: 35px;
   position: fixed;
   right: 0;
   top: 0;
@@ -190,7 +199,7 @@ body header div.dropdownIcon a {
   border: none;
   color: black;
   transition: all 0.5s;
-  line-height: 80px;
+  line-height: 60px;
   background-color: white;
 }
 body header div.dropdownIcon a:hover {
@@ -204,7 +213,8 @@ body div.bannerContainer {
 @media (max-width: 700px) {
   body div.bannerContainer {
     margin-left: 0;
-    padding-top: 80px;
+    padding-top: 60px;
+    height: calc(100vh - 60px);
   }
 }
 body div.bannerContainer .banner {

@@ -53,7 +53,7 @@ body{
                 float: none;
                 width: 100%;
                 top: 0;
-                height: 80px;
+                height: 60px;
             }
             a.logo{
                 color: white;
@@ -64,8 +64,15 @@ body{
                 font-size: 40px;
                 text-align: center;
                 z-index: 3;
+                transition: color 0.5;
+                &:hover{
+                    color: $alt-color;
+                }
                 @media(max-width: $small-break){
                     width: $margin-left-small;
+                    height: 60px;
+                    font-size: 35px;
+                    line-height: 60px;
                 }
             }
             ul.navList{
@@ -137,6 +144,7 @@ body{
                 top: 0;
                 z-index: 1;
                 margin: 0 $margin-left-small;
+                height: 60px;
             } 
             a.searchMovie{
                 border: none;
@@ -167,14 +175,15 @@ body{
                     border-bottom: 1px solid black;
                 }
                 @media(max-width: $small-break){
+                    height: 20px;
                     margin-left: 20px;
                 }
             }
         }
         div.dropdownIcon{
-            height: $margin-top;
+            height: 60px;
             width: $margin-left-small;
-            font-size: 40px;
+            font-size: 35px;
             position: fixed;
             right: 0;
             top: 0;
@@ -187,7 +196,7 @@ body{
                 border: none;
                 color: black;
                 transition: all 0.5s;
-                line-height: $margin-top;
+                line-height: 60px;
                 background-color: white;
                 &:hover{
                     background-color: black;
@@ -201,7 +210,8 @@ body{
         height: calc(100vh - 80px);
         @media(max-width: $small-break){
             margin-left: 0;
-            padding-top: $margin-top;
+            padding-top: 60px;
+            height: calc(100vh - 60px);
         }
         .banner{
             height: 100%;
