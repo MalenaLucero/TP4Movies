@@ -5,6 +5,8 @@ let lastRequest
 const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
 const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection']
 const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
+const viewAllBtnId = ['popularViewAll', 'topRatesViewAll', 'upcomingViewAll', 'nowPlayingViewAll']
+const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now_playingResults']
 
 
 const initialize = () =>{
@@ -37,6 +39,9 @@ const homeOnclick = () =>{
     moviesListId.forEach(list => innerHTMLCleaner(list))
     loadMoreBtnId.forEach(btn => hideElement(btn))
     sectionsId.forEach(section => showElement(section))
+    hideElement('searchSection')
+    resultsId.forEach(result => hideElement(result))
+    viewAllBtnId.forEach(viewAll => showElement(viewAll))
     initialize()
 }
 
