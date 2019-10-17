@@ -219,8 +219,10 @@ const searchFetch = (containerId, apiString) =>{
                     anchor.id = res.results[num].id
                     anchor.classList.add("movieAnchor")
                     anchor.onclick = function(){
-                        loading = true
-                        showMovieInfo()
+                        event.preventDefault()
+                        hideElement('movieBoxContainer')
+                        showElement('movieModal')
+                        showLoader()
                         fillModal(anchor.id)
                     }
                     let figure = document.createElement('figure')
