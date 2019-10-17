@@ -67,7 +67,9 @@
     
     <!-- MODAL -->
     <section class="movieModal hide" id="movieModal" onclick="movieBoxOnClick()">
-        <div class="movieBox">
+        <div class="show" id="loader"></div>
+        <div class="movieBoxContainer show" id="movieBoxContainer">
+            <div class="movieBox">
             <div class="backdrop" id="backdrop">
                 <img class="backgroundImage" id="backgroundImage">
                 <a href="#" class="closeMovie" onclick="closeMovie()"><i class="fas fa-times"></i></a>
@@ -87,6 +89,8 @@
                     <span id="releaseDate"></span>
                 </div>
             </div>
+        </div>
+        
         </div>
     </section>
     <!--POPULAR MOVIES-->

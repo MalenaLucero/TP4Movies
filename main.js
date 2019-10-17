@@ -2,11 +2,15 @@ const apiKey = 'e007dc23f3b14243908e46acf9ee53a1'
 const fourArray = [...Array(4).keys()]
 const twentyArray = [...Array(20).keys()]
 let lastRequest
+let loading = false
+
+//Ids arrays
 const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
 const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection']
 const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
 const viewAllBtnId = ['popularViewAll', 'topRatesViewAll', 'upcomingViewAll', 'nowPlayingViewAll']
 const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now_playingResults']
+
 
 
 const initialize = () =>{
@@ -78,9 +82,23 @@ const fetchMoviePosters = (containerId, category, numbersArray, page) =>{
 
 const openModal = (id) =>{
     event.preventDefault()
-    showMovieInfo()
-    fillModal(id)
+    hideElement('movieBoxContainer')
+    showElement('movieModal')
+    showLoader()
+    fillModal(id)    
 }
+
+const hideLoader = () =>{
+    let hideLoad = document.getElementById('loader')
+    hideLoad.classList.remove('loader')
+}
+
+const showLoader = () =>{
+    let showLoad = document.getElementById('loader')
+    showLoad.classList.add('loader')
+}
+
+
 
 const allPopularMovies = () =>{
     event.preventDefault()
@@ -179,10 +197,6 @@ const closeMovie = () =>{
     innerHTMLCleaner("releaseDate")
 }
 
-const showMovieInfo = () =>{
-    showElement('movieModal')
-}
-
 const searchMovieOnclick = () =>{
     searchMovie()
 }
@@ -205,6 +219,7 @@ const searchFetch = (containerId, apiString) =>{
                     anchor.id = res.results[num].id
                     anchor.classList.add("movieAnchor")
                     anchor.onclick = function(){
+                        loading = true
                         showMovieInfo()
                         fillModal(anchor.id)
                     }
@@ -253,6 +268,11 @@ const toggleMenu = () =>{
     menu.classList.toggle('hide')
 }
 
+const toggleLoader = () =>{
+    let menu = document.getElementById('loader')
+    menu.classList.toggle('loader')
+}
+
 const showElement = (elementId) =>{
     let element = document.getElementById(elementId)
     element.classList.replace('hide', 'show')
@@ -292,7 +312,6 @@ fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
     .then(res=>res.json())
     .then(res=> {
     let {title, tagline, poster_path, backdrop_path, overview, release_date, genres} = res
-    
     printTitle(title)
     printTagLine(tagline)
     printPosterPath(poster_path)
@@ -300,6 +319,8 @@ fetch(`https://api.themoviedb.org/3/movie/${peliculaId}?api_key=${apiKey}`)
     printOverview(overview) 
     prinReleaseDate(release_date)
     printGenre(genres)
+    hideLoader()
+    showElement('movieBoxContainer')
 })
     .catch(error=>console.log(error))
 }
