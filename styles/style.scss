@@ -26,6 +26,7 @@ $fontTitle: 'Josefin Sans', sans-serif;
 $mainColor: black;
 $lightColor: #FDF1F1;
 $alt-color: #ff0505;
+$light-grey: #f5f5f5;
 
 $margin-left: 100px;
 $margin-top: 80px;
@@ -42,6 +43,7 @@ body{
     color: black;
     font-family: $mainFont;
     position: relative;
+    background-color: $light-grey;
     header{
         nav.featureNav{
             float: left;
@@ -83,9 +85,11 @@ body{
                 flex-direction: column;
                 background-color: $transparent-white;
                 @media(max-width: $small-break){
+                    height: calc(100vh - 60px);
+                    padding: 20px;
                     flex-direction: row;
-                    justify-content: space-around;
-                    align-items: center;
+                    justify-content: space-between;
+                    align-items: top;
                     flex-wrap: wrap;
                 }
                 li{
