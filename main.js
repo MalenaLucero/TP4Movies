@@ -86,7 +86,7 @@ const openModal = (id) =>{
 
 const allPopularMovies = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) toggleMenu()
+    if(window.innerWidth <= 700) hideMobileMenu()
     innerHTMLCleaner('popularMovies')
     showElement('popularSection')
     hideSections(sectionsId.filter(sectionId => sectionId !== 'popularSection'))
@@ -100,7 +100,7 @@ const allPopularMovies = () =>{
 
 const allTopRates = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) toggleMenu()
+    if(window.innerWidth <= 700) hideMobileMenu()
     innerHTMLCleaner('topRates')
     showElement('topRatesSection')
     hideSections(sectionsId.filter(sectionId => sectionId !== 'topRatesSection'))
@@ -114,7 +114,7 @@ const allTopRates = () =>{
 
 const allUpcoming = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) toggleMenu()
+    if(window.innerWidth <= 700) hideMobileMenu()
     innerHTMLCleaner('upcoming')
     showElement('upcomingSection')
     hideSections(sectionsId.filter(sectionId => sectionId !== 'upcomingSection'))
@@ -128,7 +128,7 @@ const allUpcoming = () =>{
 
 const allNowPlaying = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) toggleMenu()
+    if(window.innerWidth <= 700) hideMobileMenu()
     innerHTMLCleaner('nowPlaying')
     showElement('nowPlayingSection')
     hideSections(sectionsId.filter(sectionId => sectionId !== 'nowPlayingSection'))
@@ -293,7 +293,7 @@ const printBackDropPath = backdrop_path =>{
     
 } 
 
-const movieBoxOnClick = () =>{ hideElement('movieModal')}
+const movieBoxOnClick = () => hideElement('movieModal')
 
 //helpers
 const showElement = (elementId) =>{
@@ -324,6 +324,11 @@ const showLoader = () =>{
 const toggleMenu = () =>{
     let menu = document.getElementById('featureNav')
     menu.classList.toggle('hide')
+}
+
+const hideMobileMenu = () =>{
+    let menu = document.getElementById('featureNav')
+    menu.classList.add('hide')
 }
 
 const hideSections = (arrayOfSectionsId) =>{
