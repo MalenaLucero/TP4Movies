@@ -6,7 +6,7 @@ let loading = false
 
 //Ids arrays
 const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
-const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection']
+const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection', 'searchSection']
 const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
 const viewAllBtnId = ['popularViewAll', 'topRatesViewAll', 'upcomingViewAll', 'nowPlayingViewAll']
 const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now_playingResults']
@@ -34,14 +34,12 @@ const menuHandler = () =>{
     }
 }
 
-
-
-
+//return home
 const homeOnclick = () =>{
     showElement('h1banner')
     moviesListId.forEach(list => innerHTMLCleaner(list))
     loadMoreBtnId.forEach(btn => hideElement(btn))
-    sectionsId.forEach(section => showElement(section))
+    sectionsId.filter(sectionId=>sectionId !== 'searchSection').forEach(section => showElement(section))
     hideElement('searchSection')
     resultsId.forEach(result => hideElement(result))
     viewAllBtnId.forEach(viewAll => showElement(viewAll))
@@ -87,27 +85,12 @@ const openModal = (id) =>{
     fillModal(id)    
 }
 
-const hideLoader = () =>{
-    let hideLoad = document.getElementById('loader')
-    hideLoad.classList.remove('loader')
-}
-
-const showLoader = () =>{
-    let showLoad = document.getElementById('loader')
-    showLoad.classList.add('loader')
-}
-
-
-
 const allPopularMovies = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) addHideClass('featureNav')
+    if(window.innerWidth <= 700) toggleMenu()
     innerHTMLCleaner('popularMovies')
     showElement('popularSection')
-    hideElement('topRatesSection')
-    hideElement('upcomingSection')
-    hideElement('nowPlayingSection')
-    hideElement('searchSection')
+    hideSections(sectionsId.filter(sectionId => sectionId !== 'popularSection'))
     hideElement('h1banner')
     fetchMoviePosters('popularMovies', 'popular', twentyArray)
     hideElement('popularViewAll')
@@ -118,13 +101,10 @@ const allPopularMovies = () =>{
 
 const allTopRates = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) addHideClass('featureNav')
+    if(window.innerWidth <= 700) toggleMenu()
     innerHTMLCleaner('topRates')
-    hideElement('popularSection')
     showElement('topRatesSection')
-    hideElement('upcomingSection')
-    hideElement('nowPlayingSection')
-    hideElement('searchSection')
+    hideSections(sectionsId.filter(sectionId => sectionId !== 'topRatesSection'))
     hideElement('h1banner')
     fetchMoviePosters('topRates', 'top_rated', twentyArray)
     hideElement('topRatesViewAll')
@@ -135,13 +115,10 @@ const allTopRates = () =>{
 
 const allUpcoming = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) addHideClass('featureNav')
+    if(window.innerWidth <= 700) toggleMenu()
     innerHTMLCleaner('upcoming')
-    hideElement('popularSection')
-    hideElement('topRatesSection')
     showElement('upcomingSection')
-    hideElement('nowPlayingSection')
-    hideElement('searchSection')
+    hideSections(sectionsId.filter(sectionId => sectionId !== 'upcomingSection'))
     hideElement('h1banner')
     fetchMoviePosters('upcoming', 'upcoming', twentyArray)
     hideElement('upcomingViewAll')
@@ -152,13 +129,10 @@ const allUpcoming = () =>{
 
 const allNowPlaying = () =>{
     event.preventDefault()
-    if(window.innerWidth <= 700) addHideClass('featureNav')
+    if(window.innerWidth <= 700) toggleMenu()
     innerHTMLCleaner('nowPlaying')
-    hideElement('popularSection')
-    hideElement('topRatesSection')
-    hideElement('upcomingSection')
     showElement('nowPlayingSection')
-    hideElement('searchSection')
+    hideSections(sectionsId.filter(sectionId => sectionId !== 'nowPlayingSection'))
     hideElement('h1banner')
     fetchMoviePosters('nowPlaying', 'now_playing', twentyArray)
     hideElement('nowPlayingViewAll')
@@ -168,13 +142,10 @@ const allNowPlaying = () =>{
 }
 
 const searchMovie = () =>{
-    hideElement('popularSection')
-    hideElement('topRatesSection')
-    hideElement('upcomingSection')
-    hideElement('nowPlayingSection')
-    showElement('searchSection')
-    hideElement('h1banner')
     innerHTMLCleaner('search')
+    showElement('searchSection')
+    hideSections(sectionsId.filter(sectionId => sectionId !== 'searchSection'))
+    hideElement('h1banner')
     showElement('searchLoad')
     let input = document.getElementById('searchInput')
     let searchInput = input.value
@@ -187,17 +158,6 @@ const searchMovie = () =>{
 const closeMovie = () =>{
     event.preventDefault()
     hideElement('movieModal')
-    innerHTMLCleaner("title")
-    innerHTMLCleaner("subtitle")
-    innerHTMLCleaner("backgroundImage")
-    innerHTMLCleaner("frontImage")
-    innerHTMLCleaner("summary")
-    innerHTMLCleaner("genre")
-    innerHTMLCleaner("releaseDate")
-}
-
-const searchMovieOnclick = () =>{
-    searchMovie()
 }
 
 const searchFetch = (containerId, apiString) =>{
@@ -260,41 +220,8 @@ const clicksCounter = (buttonId, containerId, category) =>{
     }
 }
 
-const dropdownMenu = () =>{
-    toggleMenu()
-}
 
-const toggleMenu = () =>{
-    let menu = document.getElementById('featureNav')
-    menu.classList.toggle('hide')
-}
-
-const toggleLoader = () =>{
-    let menu = document.getElementById('loader')
-    menu.classList.toggle('loader')
-}
-
-const showElement = (elementId) =>{
-    let element = document.getElementById(elementId)
-    element.classList.replace('hide', 'show')
-}
-
-const hideElement = (elementId) =>{
-    let element = document.getElementById(elementId)
-    element.classList.replace('show', 'hide')
-}
-
-const addHideClass = (elementId) =>{
-    let element = document.getElementById(elementId)
-    element.classList.add('hide')
-}
-
-const innerHTMLCleaner = (containerId) =>{
-    let container = document.getElementById(containerId)
-    container.innerHTML = ''
-}
-
-//Funcion que hizo Mike del search autocomplete
+//Search autocomplete
 const handleSearch = () =>{
     let query = event.target.value
     if (query.length >= 2 || (event.keyCode === 13 && query !== lastRequest)) {
@@ -368,3 +295,38 @@ const printBackDropPath = backdrop_path =>{
 } 
 
 const movieBoxOnClick = () =>{ hideElement('movieModal')}
+
+//helpers
+const showElement = (elementId) =>{
+    let element = document.getElementById(elementId)
+    element.classList.replace('hide', 'show')
+}
+
+const hideElement = (elementId) =>{
+    let element = document.getElementById(elementId)
+    element.classList.replace('show', 'hide')
+}
+
+const innerHTMLCleaner = (containerId) =>{
+    let container = document.getElementById(containerId)
+    container.innerHTML = ''
+}
+
+const hideLoader = () =>{
+    let hideLoad = document.getElementById('loader')
+    hideLoad.classList.remove('loader')
+}
+
+const showLoader = () =>{
+    let showLoad = document.getElementById('loader')
+    showLoad.classList.add('loader')
+}
+
+const toggleMenu = () =>{
+    let menu = document.getElementById('featureNav')
+    menu.classList.toggle('hide')
+}
+
+const hideSections = (arrayOfSectionsId) =>{
+    arrayOfSectionsId.forEach(sectionId=>hideElement(sectionId))
+}
