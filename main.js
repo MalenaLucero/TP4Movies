@@ -2,7 +2,6 @@ const apiKey = 'e007dc23f3b14243908e46acf9ee53a1'
 const fourArray = [...Array(4).keys()]
 const twentyArray = [...Array(20).keys()]
 let lastRequest
-let loading = false
 
 //Ids arrays
 const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
