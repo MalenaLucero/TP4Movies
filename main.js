@@ -14,29 +14,28 @@ const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now
 
 
 const initialize = () =>{
+    menuHandler()
     fetchMoviePosters('popularMovies', 'popular', fourArray, 1)
     fetchMoviePosters('topRates', 'top_rated', fourArray, 1)
     fetchMoviePosters('upcoming', 'upcoming', fourArray, 1)
     fetchMoviePosters('nowPlaying', 'now_playing', fourArray, 1)
     showElement('h1banner')
+    window.addEventListener('resize', ()=> menuHandler())
+}
+
+//toggles between mobile menu and desktop menu according to screen size
+const menuHandler = () =>{
     if(window.innerWidth <= 700) {
         hideElement('featureNav')
         showElement('dropDownIcon')
-    }
-    if(window.innerWidth > 700){
+    }else if(window.innerWidth > 700){
         showElement('featureNav')
         hideElement('dropDownIcon')
     }
-    window.addEventListener('resize', function(){
-        if(window.innerWidth <= 700) {
-            hideElement('featureNav')
-            showElement('dropDownIcon')
-        }else if(window.innerWidth > 700){
-            showElement('featureNav')
-            hideElement('dropDownIcon')
-        }
-    })
 }
+
+
+
 
 const homeOnclick = () =>{
     showElement('h1banner')

@@ -137,7 +137,6 @@ body header .find {
   margin-left: 120px;
   height: 80px;
   background-color: white;
-  width: 80%;
 }
 @media (max-width: 700px) {
   body header .find {
@@ -146,6 +145,7 @@ body header .find {
     z-index: 1;
     margin: 0 80px;
     height: 60px;
+    width: 100%;
   }
 }
 body header .find a.searchMovie {

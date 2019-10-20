@@ -142,13 +142,13 @@ body{
             margin-left: $margin-left;
             height: $margin-top;
             background-color: white;
-            width: 80%;
             @media(max-width: $small-break){
                 position: fixed;
                 top: 0;
                 z-index: 1;
                 margin: 0 $margin-left-small;
                 height: 60px;
+                width: 100%;
             } 
             a.searchMovie{
                 border: none;
