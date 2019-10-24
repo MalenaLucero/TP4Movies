@@ -20,25 +20,25 @@
             <div class="hide" id="featureNav">
                 <ul class="navList">
                     <li>
-                        <a href="#" onclick="allPopularMovies()">
+                        <a href="#" onclick="viewAll('popular', 'popular')">
                             <i class="far fa-star"></i>
                             <p>POPULAR</p>   
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="allTopRates()">
+                        <a href="#" onclick="viewAll('topRates', 'top_rated')">
                             <i class="fas fa-arrow-up"></i>
                             <p>TOP RATES</p> 
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="allUpcoming()">
+                        <a href="#" onclick="viewAll('upcoming', 'upcoming')">
                             <i class="far fa-calendar-alt"></i>
                             <p>UPCOMING</p> 
                         </a>
                     </li>
                     <li>
-                        <a href="#" onclick="allNowPlaying()">
+                        <a href="#" onclick="viewAll('nowPlaying', 'now_playing')">
                             <i class="far fa-play-circle"></i>
                             <p>NOW PLAYING</p> 
                         </a>
@@ -97,12 +97,12 @@
     <section class="movies popularSection show" id="popularSection">
         <div>
             <h3>POPULAR MOVIES</h3>
-            <a href="#" class="show" id="popularViewAll" onclick="allPopularMovies()">
+            <a href="#" class="show" id="popularViewAll" onclick="viewAll('popular', 'popular')">
                 <p>View all  <i class="fas fa-arrow-right"></i></p>
             </a> 
             <p class="results hide" id="popularResults"></p>
         </div>
-        <ul class="moviesList" id="popularMovies">
+        <ul class="moviesList" id="popular">
         </ul>
         <a href="#" class="load hide" id="popularLoad">LOAD MORE</a>
     </section>
@@ -110,7 +110,7 @@
     <section class="movies topRates show" id="topRatesSection">
         <div>
             <h3>TOP RATES</h3>
-            <a href="#" class="show" id="topRatesViewAll" onclick="allTopRates()">
+            <a href="#" class="show" id="topRatesViewAll" onclick="viewAll('topRates', 'top_rated')">
                 <p>View all  <i class="fas fa-arrow-right"></i></p>
             </a>
             <p class="results hide" id="top_ratedResults"></p>
@@ -123,7 +123,7 @@
     <section class="movies upcoming show" id="upcomingSection">
         <div>
             <h3>UPCOMING</h3>
-            <a href="#" class="show" id="upcomingViewAll" onclick="allUpcoming()">
+            <a href="#" class="show" id="upcomingViewAll" onclick="viewAll('upcoming', 'upcoming')">
                 <p>View all  <i class="fas fa-arrow-right"></i></p>
             </a>
             <p class="results hide" id="upcomingResults"></p>
@@ -136,7 +136,7 @@
     <section class="movies nowPlaying show" id="nowPlayingSection">
         <div>
             <h3>NOW PLAYING</h3>
-            <a href="#" class="show" id="nowPlayingViewAll" onclick="allNowPlaying()">
+            <a href="#" class="show" id="nowPlayingViewAll" onclick="viewAll('nowPlaying', 'now_playing')">
                 <p>View all  <i class="fas fa-arrow-right"></i></p>
             </a>
             <p class="results hide" id="now_playingResults"></p>

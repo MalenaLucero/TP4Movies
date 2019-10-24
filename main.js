@@ -6,15 +6,10 @@ let lastRequest
 //Ids arrays
 const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
 const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection', 'searchSection']
-const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
-const viewAllBtnId = ['popularViewAll', 'topRatesViewAll', 'upcomingViewAll', 'nowPlayingViewAll']
-const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now_playingResults']
-
-
 
 const initialize = () =>{
     menuHandler()
-    fetchMoviePosters('popularMovies', 'popular', fourArray, 1)
+    fetchMoviePosters('popular', 'popular', fourArray, 1)
     fetchMoviePosters('topRates', 'top_rated', fourArray, 1)
     fetchMoviePosters('upcoming', 'upcoming', fourArray, 1)
     fetchMoviePosters('nowPlaying', 'now_playing', fourArray, 1)
@@ -84,60 +79,19 @@ const openModal = (id) =>{
     fillModal(id)    
 }
 
-const allPopularMovies = () =>{
+//view all and nav items onclick for the four sections
+const viewAll = (section, category) =>{
     event.preventDefault()
     if(window.innerWidth <= 700) hideMobileMenu()
-    innerHTMLCleaner('popularMovies')
-    showElement('popularSection')
-    hideSections(sectionsId.filter(sectionId => sectionId !== 'popularSection'))
+    innerHTMLCleaner(`${section}`)
+    showElement(`${section}Section`)
+    hideSections(sectionsId.filter(sectionId => sectionId !== `${section}Section`))
     hideElement('h1banner')
-    fetchMoviePosters('popularMovies', 'popular', twentyArray)
-    hideElement('popularViewAll')
-    showElement('popularResults')
-    showElement('popularLoad')
-    clicksCounter('popularLoad', 'popularMovies', 'popular')
-}
-
-const allTopRates = () =>{
-    event.preventDefault()
-    if(window.innerWidth <= 700) hideMobileMenu()
-    innerHTMLCleaner('topRates')
-    showElement('topRatesSection')
-    hideSections(sectionsId.filter(sectionId => sectionId !== 'topRatesSection'))
-    hideElement('h1banner')
-    fetchMoviePosters('topRates', 'top_rated', twentyArray)
-    hideElement('topRatesViewAll')
-    showElement('top_ratedResults')
-    showElement('topRatesLoad')
-    clicksCounter('topRatesLoad', 'topRates', 'top_rated')
-}
-
-const allUpcoming = () =>{
-    event.preventDefault()
-    if(window.innerWidth <= 700) hideMobileMenu()
-    innerHTMLCleaner('upcoming')
-    showElement('upcomingSection')
-    hideSections(sectionsId.filter(sectionId => sectionId !== 'upcomingSection'))
-    hideElement('h1banner')
-    fetchMoviePosters('upcoming', 'upcoming', twentyArray)
-    hideElement('upcomingViewAll')
-    showElement('upcomingResults')
-    showElement('upcomingLoad')
-    clicksCounter('upcomingLoad', 'upcoming', 'upcoming')
-}
-
-const allNowPlaying = () =>{
-    event.preventDefault()
-    if(window.innerWidth <= 700) hideMobileMenu()
-    innerHTMLCleaner('nowPlaying')
-    showElement('nowPlayingSection')
-    hideSections(sectionsId.filter(sectionId => sectionId !== 'nowPlayingSection'))
-    hideElement('h1banner')
-    fetchMoviePosters('nowPlaying', 'now_playing', twentyArray)
-    hideElement('nowPlayingViewAll')
-    showElement('now_playingResults')
-    showElement('nowPlayingLoad')
-    clicksCounter('nowPlayingLoad', 'nowPlaying', 'now_playing')
+    fetchMoviePosters(`${section}`, `${category}`, twentyArray)
+    hideElement(`${section}ViewAll`)
+    showElement(`${category}Results`)
+    showElement(`${section}Load`)
+    clicksCounter(`${section}Load`, `${section}`, `${category}`)
 }
 
 const searchMovie = () =>{
