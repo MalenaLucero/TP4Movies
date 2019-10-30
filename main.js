@@ -4,7 +4,7 @@ const twentyArray = [...Array(20).keys()]
 let lastRequest
 
 //Ids arrays
-const moviesListId = ['popularMovies', 'topRates', 'upcoming', 'nowPlaying']
+const moviesListId = ['popular', 'topRates', 'upcoming', 'nowPlaying']
 const sectionsId = ['popularSection', 'topRatesSection', 'upcomingSection', 'nowPlayingSection', 'searchSection']
 
 const initialize = () =>{
@@ -31,11 +31,14 @@ const menuHandler = () =>{
 //return home
 const homeOnclick = () =>{
     showElement('h1banner')
+    hideElement('searchSection')
     moviesListId.forEach(list => innerHTMLCleaner(list))
+    const loadMoreBtnId = ['popularLoad', 'topRatesLoad', 'upcomingLoad', 'nowPlayingLoad']
     loadMoreBtnId.forEach(btn => hideElement(btn))
     sectionsId.filter(sectionId=>sectionId !== 'searchSection').forEach(section => showElement(section))
-    hideElement('searchSection')
+    const resultsId = ['popularResults', 'top_ratedResults', 'upcomingResults', 'now_playingResults']
     resultsId.forEach(result => hideElement(result))
+    const viewAllBtnId = ['popularViewAll', 'topRatesViewAll', 'upcomingViewAll', 'nowPlayingViewAll']
     viewAllBtnId.forEach(viewAll => showElement(viewAll))
     initialize()
 }
